@@ -1,0 +1,376 @@
+{
+    "restaurants": [
+        {
+            "id": 1,
+            "name": "Applebee's"
+        },
+        {
+            "id": 2,
+            "name": "Arby's"
+        },
+        {
+            "id": 3,
+            "name": "Auntie Anne's"
+        },
+        {
+            "id": 4,
+            "name": "Baskin Robbins"
+        },
+        {
+            "id": 5,
+            "name": "Big Boy/Frisch's Big Boy"
+        },
+        {
+            "id": 6,
+            "name": "BJ's Restaurant & Brewhouse"
+        },
+        {
+            "id": 7,
+            "name": "Bob Evans"
+        },
+        {
+            "id": 8,
+            "name": "Bojangles"
+        },
+        {
+            "id": 9,
+            "name": "Bonefish Grill"
+        },
+        {
+            "id": 10,
+            "name": "Buffalo Wild Wings"
+        },
+        {
+            "id": 11,
+            "name": "Burger King"
+        },
+        {
+            "id": 12,
+            "name": "California Pizza Kitchen"
+        },
+        {
+            "id": 13,
+            "name": "Captain D's"
+        },
+        {
+            "id": 14,
+            "name": "Carls Jr"
+        },
+        {
+            "id": 15,
+            "name": "Carrabba's Italian Grill"
+        },
+        {
+            "id": 16,
+            "name": "Casey's General Store"
+        },
+        {
+            "id": 17,
+            "name": "Checker's Drive-In/ Rally's"
+        },
+        {
+            "id": 18,
+            "name": "Cheddar's Casual Caf\u00e9 / Cheddar's Scratch Kitchen"
+        },
+        {
+            "id": 19,
+            "name": "Chick Fil A"
+        },
+        {
+            "id": 20,
+            "name": "Chili's"
+        },
+        {
+            "id": 21,
+            "name": "Chipotle"
+        },
+        {
+            "id": 22,
+            "name": "Chuck E. Cheese"
+        },
+        {
+            "id": 23,
+            "name": "Church's Chicken"
+        },
+        {
+            "id": 24,
+            "name": "Ci Ci's"
+        },
+        {
+            "id": 25,
+            "name": "Cracker Barrel"
+        },
+        {
+            "id": 26,
+            "name": "Culver's"
+        },
+        {
+            "id": 27,
+            "name": "Dairy Queen"
+        },
+        {
+            "id": 28,
+            "name": "Del Taco"
+        },
+        {
+            "id": 29,
+            "name": "Denny's"
+        },
+        {
+            "id": 30,
+            "name": "Dickey's Barbeque"
+        },
+        {
+            "id": 31,
+            "name": "Domino's"
+        },
+        {
+            "id": 32,
+            "name": "Dunkin' Donuts"
+        },
+        {
+            "id": 33,
+            "name": "Einstein Bros"
+        },
+        {
+            "id": 34,
+            "name": "El Pollo Loco"
+        },
+        {
+            "id": 35,
+            "name": "Famous Dave's"
+        },
+        {
+            "id": 36,
+            "name": "Firehouse Subs"
+        },
+        {
+            "id": 37,
+            "name": "Five Guys"
+        },
+        {
+            "id": 38,
+            "name": "Golden Corral"
+        },
+        {
+            "id": 39,
+            "name": "Hardee's"
+        },
+        {
+            "id": 40,
+            "name": "Hooter's"
+        },
+        {
+            "id": 41,
+            "name": "IHOP"
+        },
+        {
+            "id": 42,
+            "name": "In-N-Out"
+        },
+        {
+            "id": 43,
+            "name": "Jack in the Box"
+        },
+        {
+            "id": 44,
+            "name": "Jamba Juice"
+        },
+        {
+            "id": 45,
+            "name": "Jimmy John's"
+        },
+        {
+            "id": 46,
+            "name": "Joe's Crab Shack"
+        },
+        {
+            "id": 47,
+            "name": "KFC"
+        },
+        {
+            "id": 48,
+            "name": "Krispy Kreme"
+        },
+        {
+            "id": 49,
+            "name": "Krystal"
+        },
+        {
+            "id": 50,
+            "name": "Little Caesar's"
+        },
+        {
+            "id": 51,
+            "name": "Long John Silver's"
+        },
+        {
+            "id": 52,
+            "name": "Longhorn Steakhouse"
+        },
+        {
+            "id": 53,
+            "name": "McDonald's"
+        },
+        {
+            "id": 54,
+            "name": "Moe's Southwest Grill"
+        },
+        {
+            "id": 55,
+            "name": "O'Charley's"
+        },
+        {
+            "id": 56,
+            "name": "Olive Garden"
+        },
+        {
+            "id": 57,
+            "name": "On The Border"
+        },
+        {
+            "id": 58,
+            "name": "Outback Steakhouse"
+        },
+        {
+            "id": 59,
+            "name": "Panda Express"
+        },
+        {
+            "id": 60,
+            "name": "Panera Bread"
+        },
+        {
+            "id": 61,
+            "name": "Papa John's"
+        },
+        {
+            "id": 62,
+            "name": "Papa Murphy's"
+        },
+        {
+            "id": 63,
+            "name": "Perkins"
+        },
+        {
+            "id": 64,
+            "name": "PF Chang's"
+        },
+        {
+            "id": 65,
+            "name": "Pizza Hut"
+        },
+        {
+            "id": 66,
+            "name": "Popeyes"
+        },
+        {
+            "id": 67,
+            "name": "Portillo's"
+        },
+        {
+            "id": 68,
+            "name": "Qdoba"
+        },
+        {
+            "id": 69,
+            "name": "Quiznos"
+        },
+        {
+            "id": 70,
+            "name": "Raising Cane's Chicken Fingers"
+        },
+        {
+            "id": 71,
+            "name": "Red Lobster"
+        },
+        {
+            "id": 72,
+            "name": "Red Robin"
+        },
+        {
+            "id": 73,
+            "name": "Romano's Macaroni & Grill"
+        },
+        {
+            "id": 74,
+            "name": "Round Table Pizza"
+        },
+        {
+            "id": 75,
+            "name": "Sbarro"
+        },
+        {
+            "id": 76,
+            "name": "Shake Shack"
+        },
+        {
+            "id": 77,
+            "name": "Sonic"
+        },
+        {
+            "id": 78,
+            "name": "Starbucks"
+        },
+        {
+            "id": 79,
+            "name": "Steak 'N Shake"
+        },
+        {
+            "id": 80,
+            "name": "Subway"
+        },
+        {
+            "id": 81,
+            "name": "Taco Bell"
+        },
+        {
+            "id": 82,
+            "name": "TGI Friday's"
+        },
+        {
+            "id": 83,
+            "name": "The Capital Grille"
+        },
+        {
+            "id": 84,
+            "name": "The Cheesecake Factory"
+        },
+        {
+            "id": 85,
+            "name": "Tropical Smoothie Caf\u00e9"
+        },
+        {
+            "id": 86,
+            "name": "Waffle House"
+        },
+        {
+            "id": 87,
+            "name": "Wendy's"
+        },
+        {
+            "id": 88,
+            "name": "Whataburger"
+        },
+        {
+            "id": 89,
+            "name": "White Castle"
+        },
+        {
+            "id": 90,
+            "name": "Wingstop"
+        },
+        {
+            "id": 91,
+            "name": "Yard House"
+        },
+        {
+            "id": 92,
+            "name": "Zaxby's"
+        },
+        {
+            "id": 93,
+            "name": "Unknown Restaurant"
+        }
+    ]
+}
