@@ -35,28 +35,37 @@ export default function Nutrition() {
   };
 
   const getComparisonLabel = (
-    value: number | string | null,
-    nutrient: keyof typeof DAILY_VALUES,
-    allItems: any[]
-  ): { label: string; color: keyof typeof colorMap } => {
-    if (value === null || value === '' || isNaN(Number(value))) return { label: '-', color: 'gray' };
+  value: number | string | null,
+  nutrient: keyof typeof DAILY_VALUES,
+  allItems: any[]
+): { label: string; color: keyof typeof colorMap } => {
+  // Remove commas from value for correct number conversion
+  const sanitizedValue = typeof value === 'string' ? value.replace(/,/g, '') : value;
+  if (sanitizedValue === null || sanitizedValue === '' || isNaN(Number(sanitizedValue))) return { label: '-', color: 'gray' };
 
-    const numValue = Number(value);
-    const values: number[] = allItems
-      .map(i => Number(i[nutrient]))
-      .filter(n => !isNaN(n));
+  const numValue = Number(sanitizedValue);
+  const values: number[] = allItems
+    .map(i => {
+      const v = typeof i[nutrient] === 'string' ? i[nutrient].replace(/,/g, '') : i[nutrient];
+      return Number(v);
+    })
+    .filter(n => !isNaN(n));
 
-    if (values.length === 0) return { label: '-', color: 'gray' };
+  if (values.length === 0) return { label: '-', color: 'gray' };
 
-    values.sort((a, b) => a - b);
+  values.sort((a, b) => a - b);
 
-    const index = values.findIndex(v => v >= numValue);
-    const percentile = index / values.length;
-
-    if (percentile >= 0.75) return { label: 'High', color: 'red' };
+  const index = values.findIndex(v => v >= numValue);
+  const percentile = index / values.length;
+  if ((nutrient === 'protein') || (nutrient === 'potassium')) {
+    if (percentile >= 0.75) return { label: 'High', color: 'green' };
     if (percentile >= 0.25) return { label: 'Moderate', color: 'yellow' };
-    return { label: 'Low', color: 'green' };
-  };
+    return { label: 'Low', color: 'red' }
+  }
+  if (percentile >= 0.75) return { label: 'High', color: 'red' };
+  if (percentile >= 0.25) return { label: 'Moderate', color: 'yellow' };
+  return { label: 'Low', color: 'green' };
+};
 
   const item = foodData.food_items.find((item) => item.id === itemId);
 
@@ -80,44 +89,46 @@ export default function Nutrition() {
   };
 
   return (
-  <ScrollView className="flex-1 bg-zinc-900 px-4">
-    <SafePad />
-    {/* Item Title and Description */}
-    <Text className="text-white text-2xl font-bold mb-4">{item.item_name}</Text>
-    {item.item_description && (
-      <Text className="text-zinc-300 text-sm mb-4">{item.item_description}</Text>
-    )}
+    <ScrollView className="flex-1 bg-zinc-900 px-4">
+      <SafePad />
+      {/* Item Title and Description */}
+      <Text className="text-white text-2xl font-bold mb-4">{item.item_name}</Text>
+      {item.item_description && (
+        <Text className="text-zinc-300 text-sm mb-4">{item.item_description}</Text>
+      )}
 
-    {/* Nutrient Summary */}
-    {/* Column Headers */}
-    <View className="flex-row justify-between border-b border-zinc-800 py-2 mb-2">
-      <Text className="text-white capitalize w-1/4">Nutrient</Text>
-      <Text className="text-white w-1/4 text-right">Grams</Text>
-      <Text className="text-white w-1/4 text-right">%DV</Text>
-      <Text className="text-white w-1/4 text-right">Category Score*</Text>
-    </View>
-    {nutrientKeys.map((key) => {
-      const value = item[key];
-      const dailyValue = getDailyValuePercent(value, key as keyof typeof DAILY_VALUES);
-      const comparison = getComparisonLabel(value, key as keyof typeof DAILY_VALUES, allItemsInCategory);
+      {/* Nutrient Summary */}
+      {/* Column Headers */}
+      <View className="flex-row justify-between border-b border-zinc-800 py-2 mb-2">
+        <Text className="text-white capitalize w-1/4">Nutrient</Text>
+        <Text className="text-white w-1/4 text-right">Amount</Text>
+        <Text className="text-white w-1/4 text-right">%DV</Text>
+        <Text className="text-white w-1/4 text-right">Category Score*</Text>
+      </View>
+      {nutrientKeys.map((key) => {
+        const value = item[key];
+        // Sanitize value for calculations: remove commas and parse as number
+        const sanitizedValue = typeof value === 'string' ? value.replace(/,/g, '') : value;
+        const dailyValue = getDailyValuePercent(sanitizedValue, key as keyof typeof DAILY_VALUES);
+        const comparison = getComparisonLabel(sanitizedValue, key as keyof typeof DAILY_VALUES, allItemsInCategory);
 
-      return (
-        <View key={key} className="flex-row justify-between border-b border-zinc-800 py-2">
-          <Text className="text-white capitalize w-1/4">{key.replace(/_/g, ' ')}</Text>
-          <Text className="text-white w-1/4 text-right">{value ?? '-'}</Text>
-          <Text className="text-gray-400 w-1/4 text-right">{dailyValue}</Text>
-          <Text style={{ color: colorMap[comparison.color], textAlign: 'right', width: '25%' }}>{comparison.label}</Text>
-        </View>
-      );
-    })}
-    <Text className="text-gray-400 text-xs mt-4">
-      * Category Score is based on the item's nutrient content compared to others in the same category.
-    </Text>
-    <Text className="text-gray-400 text-xs mt-2">
-      % Daily values are based on a 2,000 calorie diet and other reccomended limits from the FDA. Your daily values may be higher or lower depending on your calorie/nutritional needs. Seriously the Government really doesn't care much about your health, so you should probably do your own research beyond this App.
-    </Text>
+        return (
+          <View key={key} className="flex-row justify-between border-b border-zinc-800 py-2">
+            <Text className="text-white capitalize w-1/4">{key.replace(/_/g, ' ')}</Text>
+            <Text className="text-white w-1/4 text-right">{value ?? '-'}</Text>
+            <Text className="text-gray-400 w-1/4 text-right">{dailyValue}</Text>
+            <Text style={{ color: colorMap[comparison.color], textAlign: 'right', width: '25%' }}>{comparison.label}</Text>
+          </View>
+        );
+      })}
+      <Text className="text-gray-400 text-xs mt-4">
+        * Category Score is based on the item's nutrient content compared to others in the same category.
+      </Text>
+      <Text className="text-gray-400 text-xs mt-2">
+        % Daily values are based on the 2,000 calorie diet and other reccomended limits from the FDA. Your daily values may be higher or lower depending on your calorie/nutritional needs.
+      </Text>
 
-    
-  </ScrollView>
-)
+
+    </ScrollView>
+  )
 };

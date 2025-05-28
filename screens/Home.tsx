@@ -8,8 +8,7 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import type { StackNavigationProp } from '@react-navigation/stack';
 import type { RootStackParamList } from '../App';
-import ScreenBackground from '../components/ScreenBackground'; // Adjust the import path as necessary
-
+import ScreenBackground from '../components/ScreenBackground';
 export default function Home() {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList, 'Home'>>();
 
@@ -17,7 +16,7 @@ export default function Home() {
     <ScreenBackground>
       <View className="flex-1 bg-zinc-900/80 px-4 justify-center items-center">
         <Text className="text-white text-2xl font-bold mb-10 text-center">
-          Welcome to Snakalyzer
+          Welcome to Snackalyzer
         </Text>
 
         <TouchableOpacity
